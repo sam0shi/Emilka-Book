@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Главная</title>
+</head>
+<body>
+    <div class="head">
+      <a href="index.html" class="main"><h3 class="">Главная</h3></a>
+      <!-- <section class="hero">
+        <div class="controls">
+          <h1>passion</h1>
+        </div>
+      </section> -->
+      
+
+     <a href="history.html" class="history"> <h3 class="">О книге</h3></a>
+     <a href="contacts.html" class="contacts"><h3 class="">Связаться</h3></a>
+    </div>
+    <div class="book_read">
+   <a href="emil.epub" class="read1">  <h1 class="">Нажмите для скачивания.</h1></a>
+    <img src="logo1.png" alt="" class="logo">
+</div>
+<div class="foot">
+  <h4 class="disklamer">Рекомендуется предоставлять доступ к книге лицам, достигшим 18 лет и старше. Благодарю за понимание.</h4>
+    <h5 class="since">since 2023</h5>
+</div>
+
+<script>
+
+  // Находим ссылку по классу read1
+const downloadLink = document.querySelector('.read1');
+
+// Добавляем обработчик события на клик по ссылке
+downloadLink.addEventListener('click', function() {
+    alert('ДАННЫЙ ФОРМАТЬ КНИГИ МОЖНО ПРОЧИТАТЬ В ПРИЛОЖЕНИИ ReadEra. Приятного чтения!'); // Здесь вместо 'Ваше сообщение здесь', добавьте нужное вам сообщение
+});
+
+
+</script>
+
+</body>
+</html>
