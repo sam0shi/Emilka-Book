@@ -31,7 +31,7 @@ body{
 .read1{
     position: absolute;
     font-family: Arial, Helvetica, sans-serif;
-    margin-left: 700px;
+    margin-left: 650px;
     color: black;
     margin-top: 180px;
     z-index: 1;
@@ -416,7 +416,7 @@ body{
     background-color: black;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
-    display: flex; 
+    display: flex;
 }
 
 .foot{
@@ -426,7 +426,7 @@ body{
     background-color: black;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
-    display: flex; 
+    display: flex;
 }
 
 .foot2{
@@ -436,7 +436,7 @@ body{
    background-color: black;
    color: white;
    font-family: Arial, Helvetica, sans-serif;
-   display: flex;    
+   display: flex;
 }
 
 
@@ -545,7 +545,6 @@ body{
 .chapter1{
     font-size: 40px;
     margin-left: 10px;
-    text-decoration: none;
     font-family: Arial, Helvetica, sans-serif;
     cursor: pointer;
     color: black;
