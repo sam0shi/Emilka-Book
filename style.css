@@ -271,7 +271,7 @@ body{
 
    .head {
        width: auto;
-       height: 150px; /* Уменьшаем высоту шапки */
+       height: 200px; /* Уменьшаем высоту шапки */
        display: block; /* Изменяем на блочный элемент */
        text-align: center; /* Центрируем текст в шапке */
    }
@@ -279,10 +279,11 @@ body{
    .logo {
        position: static; /* Меняем позицию логотипа на обычную статическую */
        margin-left: auto;
+z-index: -1;
        margin-right: auto;
-       margin-top: 10px; /* Уменьшаем отступ сверху */
-       width: 80%; /* Уменьшаем ширину логотипа */
-       height: auto; /* Автоматический расчет высоты */
+       margin-top: 60px; /* Уменьшаем отступ сверху */
+       width: 50%; /* Уменьшаем ширину логотипа */
+       height: 50%; /* Автоматический расчет высоты */
    }
 
    .read1, .history, .contacts {
@@ -355,6 +356,7 @@ body{
     border: none;
     border-radius: 5px;
     font-size: 40px;
+margin-left: 25px;
     cursor: pointer;
 }
 
@@ -371,6 +373,30 @@ body{
 
 
 
+
+.tom1{
+    background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-animation: rainbow 1.5xs ease infinite alternate;
+    animation: rainbow 1.5s ease infinite alternate;
+    padding: 0px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 40px;
+    cursor: pointer;
+    margin-left: 25px;
+}
+
+@keyframes rainbow{
+    0%{
+        background-position: 0% 50%;
+    }
+    100%{
+        background-position: 100% 50%;
+    }
+}
 
 
 
@@ -550,16 +576,3 @@ body{
     color: black;
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
- 
