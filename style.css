@@ -1,37 +1,573 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Второй том</title>
-</head>
-<body>
-    <div class="head">
-      <a href="index.html" class="main"><h3 class="">Главная</h3></a>
-     <a href="history.html" class="history"> <h3 class="">О книге</h3></a>
-     <a href="contacts.html" class="contacts"><h3 class="">Связаться</h3></a>
-     <a href="firstTom.html"><button class="tom1">Первый том</button></a>
-     <a href="secondTom.html"><button class="tom2">Второй том</button></a>
-    </div>
+*{
+    padding: 0;
+    margin: 0;
+}
+::selection{
+    background-color: black;
+    color: white;
+}
+body{
+    background-color: rgb(240, 237, 237);
+}
+.head{
+    width: auto;
+    height: 200px;
+    background-color: black;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    justify-content: space-around;
+    display: flex;
+}
+.logo{
+    position: absolute;
+    margin-left: 700px;
+  margin-top: 100px;
+    width: 350px;
+    height: 350px;
+    cursor: pointer;
+}
+
+.read1{
+    position: absolute;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 650px;
+    color: black;
+    margin-top: 180px;
+    z-index: 1;
+    transition: 0.5s;
+    text-decoration: none;
+    
+}
+.read1:hover{
+    text-shadow: 2px 2px 20px rgb(61, 61, 61);
+}
+
+.main{
+    font-size: 30px;
+  
+    margin-top: 75px;
+    cursor: pointer;
+    transition: 0.5s;
+    text-shadow: 1px 20px 40px white;
+    text-decoration: none;
+    color: white;
+    /* position: absolute; */
+}
+.main:hover{
+    transition: 0.5s;
+    text-shadow: 1px 20px 40px wheat;
+    color: wheat;
+    margin-top: 70px;
+}
+
+.history{
+    font-size: 30px;
+    
+    margin-top: 75px;
+    cursor: pointer;
+    transition: 0.5s;
+    text-decoration: none;
+    color: white;
+    text-shadow: 1px 20px 40px white;
+    /* position: absolute;    */
+}
+.history:hover{
+    transition: 0.5s;
+    color: red;
+    margin-top: 70px;
+    text-shadow: 1px 20px 40px red;
+ }
+
+ .contacts{
+    font-size: 30px;
+    text-decoration: none;
+    margin-top: 75px;
+    cursor: pointer;
+    transition: 0.5s;
+    color: white;
+    text-shadow: 1px 20px 40px white;
+    /* position: absolute;  */
+ }
+ .contacts:hover{
+    /* font-size: 35px; */
+    transition: 0.5s;
+    color: rgb(0, 255, 0);
+    margin-top: 70px;
+    text-shadow: 1px 20px 40px rgb(0, 255, 0);
+ }
+
+ .book_read{
+    cursor: pointer;
+ }
+
+.recom{
+    position: absolute;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 500px;
+    margin-top: 100px;
+    z-index: 1;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+    transition: 0.5s;
+}
+.recom:hover{
+    transition: 0.5s;
+    color: red;
+    margin-top: 98px;
+    text-shadow: 1px 20px 40px red;
+}
+
+ .foot{
+    width: auto;
+    height: 173px;
+    margin-top: 600px;
+    background-color: black;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;    
+ }
+
+ .foot1{
+   width: auto;
+   height: 220px;
+   margin-top: 600px;
+   background-color: black;
+   color: white;
+   font-family: Arial, Helvetica, sans-serif;
+   display: flex;    
+}
+
+
+.foot2{
+   width: auto;
+   height: 173px;
+   margin-top: 600px;
+   background-color: black;
+   color: white;
+   font-family: Arial, Helvetica, sans-serif;
+   display: flex;    
+}
+
+
+ .disklamer{
+    position: absolute;
+    margin-right: 60px;
+    margin-top: 70px;
+    font-size: 30px;
+ }
+ .since{
+    margin-left: 1830px;
+    margin-top: 140px;
+ }
 
 
 
 
 
-    <h1 class="daun">ЧТОБЫ ПРОЧИТАТЬ ГЛАВУ НАЖМИТЕ НА ССЫЛКИ НИЖЕ: "ГЛАВА №"(Второй том)</h1>
-   <a href="emilka1.txt" class="chapter1"><h2 >Глава 1</h2></a>
-   <a href="emilka2.txt" class="chapter1"><h2 >Глава 2</h2></a>
-   <a href="emilka3.txt" class="chapter1"><h2 >Глава 3</h2></a>
-   <a href="emilka4.txt" class="chapter1"><h2 >Глава 4</h2></a>
+
+
+
+ .creators{
+    position: absolute;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 40px; 
+    margin-left: 100px;
+    margin-top: 50px;
+ }
+
+ .details{
+    position: absolute;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 100px;
+    margin-top: 130px;
+ }
+ .details1{
+    position: absolute;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 100px;
+    margin-top: 170px;
+ }
+ .details2{
+    position: absolute;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 100px;
+    margin-top: 210px;
+ }
+ .details3{
+    position: absolute;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 100px;
+    margin-top: 250px;
+ }
+ .details4{
+    position: absolute;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 100px;
+    margin-top: 290px;
+ }
+
+ .good{
+    position: absolute;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 100px;
+    margin-top: 410px;
+ }
+
+
+.boltat{
+   position: absolute;
+   font-family: Arial, Helvetica, sans-serif;
+   margin-left: 100px;
+   margin-top: 330px;
+}
+
+.tom{
+   position: absolute;
+   font-family: Arial, Helvetica, sans-serif;
+   margin-left: 100px;
+   margin-top: 370px;
+}
 
 
 
 
-<div class="foot">
-  <h4 class="disklamer">Рекомендуется предоставлять доступ к книге лицам, достигшим 69 лет и старше. Благодарю за понимание.(КТО НАСТОЛЬКО ИДИОТ, ЭТО ШУТКА)</h4>
-</div>
 
 
-</body>
-</html>
+
+
+ .opisanie_his{
+   position: absolute;
+   font-family: Arial, Helvetica, sans-serif;
+   font-size: 40px;
+   margin-top: 240px;
+   margin-left: 10px;
+   color: rgb(113, 113, 113);
+ }
+
+
+.zagolovok{
+   margin-left: 4px;
+   position: absolute;
+   font-family: Arial, Helvetica, sans-serif;
+   font-size: 60px;
+   color: rgb(178, 13, 13);
+}
+
+
+
+
+
+
+
+
+/* Медиа-запрос для адаптации под мобильные устройства до 600px */
+@media only screen and (max-width: 600px) {
+   * {
+       padding: 0;
+       margin: 0;
+   }
+
+   .head {
+       width: auto;
+       height: 200px; /* Уменьшаем высоту шапки */
+       display: block; /* Изменяем на блочный элемент */
+       text-align: center; /* Центрируем текст в шапке */
+   }
+
+   .logo {
+       position: static; /* Меняем позицию логотипа на обычную статическую */
+       margin-top: 60px; /* Уменьшаем отступ сверху */
+       width: 6%; /* Уменьшаем ширину логотипа */
+       height: 6%; /* Автоматический расчет высоты */
+   }
+
+   .read1, .history, .contacts {
+       font-size: 16px; /* Уменьшаем размер шрифта ссылок в шапке */
+   }
+
+   .read1 {
+       margin-top: 20px; /* Уменьшаем отступ сверху у блока с текстом для скачивания */
+   }
+
+   .foot {
+       margin-top: 10px; /* Уменьшаем отступ сверху для подвала */
+   }
+
+.main{
+   font-size: 20px;
+  
+   margin-left: 75px;
+   cursor: pointer;
+   transition: 0.5s;
+   text-shadow: 1px 20px 40px white;
+   text-decoration: none;
+   color: white;
+   
+}
+
+.history{
+   font-size: 20px;
+   padding-top: 10px;
+   margin-top: 75px;
+   cursor: pointer;
+   transition: 0.5s;
+   text-decoration: none;
+   color: white;
+   text-shadow: 1px 20px 40px white;
+   /* position: absolute;    */
+}
+
+
+.contacts{
+   font-size: 20px;
+   text-decoration: none;
+   margin-top: 75px;
+   cursor: pointer;
+   transition: 0.5s;
+   color: white;
+   text-shadow: 1px 20px 40px white;
+   /* position: absolute;  */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.tom2{
+    background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-animation: rainbow 1.5xs ease infinite alternate;
+    animation: rainbow 1.5s ease infinite alternate;
+    padding: 0px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 40px;
+margin-left: 25px;
+    cursor: pointer;
+}
+
+@keyframes rainbow{
+    0%{
+        background-position: 0% 50%;
+    }
+    100%{
+        background-position: 100% 50%;
+    }
+}
+
+
+
+
+
+
+.tom1{
+    background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-animation: rainbow 1.5xs ease infinite alternate;
+    animation: rainbow 1.5s ease infinite alternate;
+    padding: 0px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 40px;
+    cursor: pointer;
+    margin-left: 25px;
+}
+
+@keyframes rainbow{
+    0%{
+        background-position: 0% 50%;
+    }
+    100%{
+        background-position: 100% 50%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.logo{
+   width: 350px;
+   height: 350px;
+   margin-left: 10px;
+   cursor: pointer;
+}
+
+
+.disklamer{
+   position: absolute;
+   margin-left: 50px;
+   margin-top: 50px;
+   font-size: 20px;
+   color: rgb(146, 20, 20);
+}
+
+.foot1{
+   width: auto;
+    height: 220px;
+    margin-top: 596px;
+    background-color: black;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+}
+
+.foot{
+   width: auto;
+    height: 220px;
+    margin-top: 178px;
+    background-color: black;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+}
+
+.foot2{
+   width: auto;
+   height: 220px;
+   margin-top: 596px;
+   background-color: black;
+   color: white;
+   font-family: Arial, Helvetica, sans-serif;
+   display: flex;
+}
+
+
+.zagolovok{
+   margin-left: 4px;
+   position: absolute;
+   font-family: Arial, Helvetica, sans-serif;
+   font-size: 30px;
+   color: rgb(178, 13, 13);
+}
+
+
+.opisanie_his{
+   position: absolute;
+   font-family: Arial, Helvetica, sans-serif;
+   font-size: 20px;
+   margin-top: 270px;
+   margin-left: 10px;
+   color: rgb(113, 113, 113);
+}
+
+.details{
+   position: absolute;
+   font-family: Arial, Helvetica, sans-serif;
+   margin-left: 10px;
+   margin-top:    10px;
+   font-size: 20px;
+}
+
+
+.details1{
+   position: absolute;
+   font-family: Arial, Helvetica, sans-serif;
+   margin-left: 10px;
+   margin-top: 90px;
+}
+
+.details4{
+   position: absolute;
+   font-family: Arial, Helvetica, sans-serif;
+   margin-left: 10px;
+   margin-top: 160px;
+   font-size: 20px;
+}
+
+
+.boltat{
+   position: absolute;
+   font-family: Arial, Helvetica, sans-serif;
+   margin-left: 10px;
+   margin-top: 220px;
+}
+
+
+.tom{
+   position: absolute;
+   font-family: Arial, Helvetica, sans-serif;
+   margin-left: 10px;
+   margin-top: 300px;
+}
+
+
+.good{
+   position: absolute;
+   font-family: Arial, Helvetica, sans-serif;
+   margin-left: 10px;
+   margin-top: 450px;
+}
+
+
+.read1{
+   position: absolute;
+   font-family: Arial, Helvetica, sans-serif;
+   color: black;
+   margin-left: 12px;
+   margin-top: 50px;
+   font-size: 15px;
+   z-index: 1;
+   text-decoration: none;
+}
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+.daun{
+    color: rgb(146, 20, 20);
+    padding-bottom: 20px;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+
+
+.chapter1{
+    font-size: 40px;
+    margin-left: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+    color: black;
+
+}
