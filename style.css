@@ -26,6 +26,20 @@ body{
     height: 350px;
     cursor: pointer;
 }
+body {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100vh;
+   margin: 0;
+   font-family: Arial, sans-serif;
+   background-color: #f0f0f0;
+   text-align: center;
+}
+.message {
+   font-size: 24px;
+   color: #333;
+}
 
 .read1{
     position: absolute;
@@ -602,3 +616,4 @@ font-family: 'Georgia', serif;
     color: black;
 
 }
+
