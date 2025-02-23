@@ -73,3 +73,8 @@ document.getElementById('random-button').addEventListener('click', function() {
     const randomString = getRandomString();
     document.getElementById('result').textContent = randomString;
 });
+
+
+if (window.innerWidth >= 768) { // Проверяем ширину окна
+    document.body.innerHTML = `<div class="message">Сайт доступен только на мобильных устройствах.</div>`;
+}
