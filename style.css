@@ -273,6 +273,7 @@ body{
        height: 200px; /* Уменьшаем высоту шапки */
        display: block; /* Изменяем на блочный элемент */
        text-align: center; /* Центрируем текст в шапке */
+       font-family: 'Georgia', serif;
    }
 
    .logo {
@@ -281,6 +282,31 @@ body{
        width: 6%; /* Уменьшаем ширину логотипа */
        height: 6%; /* Автоматический расчет высоты */
    }
+
+   #random-button {
+      background-color: black; /* Цвет фона кнопки */
+      color: white; /* Цвет текста */
+      font-size: 20px; /* Размер шрифта */
+      padding: 10px 10px; /* Поля (отступы) внутри кнопки */
+      margin-left: 75px;
+      font-family: 'Georgia', serif;
+      border: none; /* Убираем рамку */
+      border-radius: 5px; /* Закругление углов кнопки */
+      cursor: pointer; /* Указываем, что кнопка кликабельна */
+      transition: background-color 0.3s; /* Плавный переход для фона при наведении */
+  }
+  
+  #result {
+   font-family: 'Georgia', serif; /* Применяем красивый шрифт */
+   font-size: 28px; /* Увеличиваем размер текста */
+   color: #333; /* Цвет текста */
+   margin-top: 20px; /* Отступ сверху */
+   padding: 10px 20px; /* Поля для содержимого */
+   border: 1px solid #ccc; /* Рамка вокруг текста */
+   border-radius: 5px; /* Закругление углов рамки */
+   background-color: #f9f9f9; /* Цвет фона для текста */
+   display: inline-block; /* Делаем область текста настраиваемой по ширине */
+}
 
    .read1, .history, .contacts {
        font-size: 16px; /* Уменьшаем размер шрифта ссылок в шапке */
@@ -315,11 +341,13 @@ body{
    text-decoration: none;
    color: white;
    text-shadow: 1px 20px 40px white;
+   font-family: 'Georgia', serif;
    /* position: absolute;    */
 }
 
 
 .contacts{
+   font-family: 'Georgia', serif;
    font-size: 20px;
    text-decoration: none;
    margin-top: 75px;
@@ -353,6 +381,7 @@ body{
     border-radius: 5px;
     font-size: 40px;
 margin-left: 25px;
+font-family: 'Georgia', serif;
     cursor: pointer;
 }
 
@@ -380,6 +409,7 @@ margin-left: 25px;
     padding: 0px 30px;
     border: none;
     border-radius: 5px;
+    font-family: 'Georgia', serif;
     font-size: 40px;
     cursor: pointer;
     margin-left: 25px;
@@ -428,6 +458,7 @@ margin-left: 25px;
    margin-top: 50px;
    font-size: 20px;
    color: rgb(146, 20, 20);
+   font-family: 'Georgia', serif;
 }
 
 .foot1{
@@ -436,7 +467,7 @@ margin-left: 25px;
     margin-top: 596px;
     background-color: black;
     color: white;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Georgia', serif;
     display: flex;
 }
 
@@ -446,7 +477,7 @@ margin-left: 25px;
     margin-top: 178px;
     background-color: black;
     color: white;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Georgia', serif;
     display: flex;
 }
 
@@ -456,7 +487,7 @@ margin-left: 25px;
    margin-top: 596px;
    background-color: black;
    color: white;
-   font-family: Arial, Helvetica, sans-serif;
+   font-family: 'Georgia', serif;
    display: flex;
 }
 
@@ -464,7 +495,7 @@ margin-left: 25px;
 .zagolovok{
    margin-left: 4px;
    position: absolute;
-   font-family: Arial, Helvetica, sans-serif;
+   font-family: 'Georgia', serif;
    font-size: 30px;
    color: rgb(178, 13, 13);
 }
@@ -472,7 +503,7 @@ margin-left: 25px;
 
 .opisanie_his{
    position: absolute;
-   font-family: Arial, Helvetica, sans-serif;
+   font-family: 'Georgia', serif;
    font-size: 20px;
    margin-top: 270px;
    margin-left: 10px;
@@ -481,7 +512,7 @@ margin-left: 25px;
 
 .details{
    position: absolute;
-   font-family: Arial, Helvetica, sans-serif;
+   font-family: 'Georgia', serif;
    margin-left: 10px;
    margin-top:    10px;
    font-size: 20px;
@@ -490,14 +521,14 @@ margin-left: 25px;
 
 .details1{
    position: absolute;
-   font-family: Arial, Helvetica, sans-serif;
+   font-family: 'Georgia', serif;
    margin-left: 10px;
    margin-top: 90px;
 }
 
 .details4{
    position: absolute;
-   font-family: Arial, Helvetica, sans-serif;
+   font-family: 'Georgia', serif;
    margin-left: 10px;
    margin-top: 160px;
    font-size: 20px;
@@ -506,7 +537,7 @@ margin-left: 25px;
 
 .boltat{
    position: absolute;
-   font-family: Arial, Helvetica, sans-serif;
+   font-family: 'Georgia', serif;
    margin-left: 10px;
    margin-top: 220px;
 }
@@ -514,7 +545,7 @@ margin-left: 25px;
 
 .tom{
    position: absolute;
-   font-family: Arial, Helvetica, sans-serif;
+   font-family: 'Georgia', serif;
    margin-left: 10px;
    margin-top: 300px;
 }
@@ -522,7 +553,7 @@ margin-left: 25px;
 
 .good{
    position: absolute;
-   font-family: Arial, Helvetica, sans-serif;
+   font-family: 'Georgia', serif;
    margin-left: 10px;
    margin-top: 450px;
 }
@@ -530,7 +561,7 @@ margin-left: 25px;
 
 .read1{
    position: absolute;
-   font-family: Arial, Helvetica, sans-serif;
+   font-family: 'Georgia', serif;
    color: black;
    margin-left: 12px;
    margin-top: 50px;
@@ -556,7 +587,7 @@ margin-left: 25px;
     color: rgb(146, 20, 20);
     padding-bottom: 20px;
     text-decoration: none;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Georgia', serif;
 }
 
 
@@ -566,7 +597,7 @@ margin-left: 25px;
 .chapter1{
     font-size: 40px;
     margin-left: 10px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Georgia', serif;
     cursor: pointer;
     color: black;
 
