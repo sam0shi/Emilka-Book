@@ -74,7 +74,30 @@ document.getElementById('random-button').addEventListener('click', function() {
     document.getElementById('result').textContent = randomString;
 });
 
+// Функция для проверки размера окна
+function checkWindowSize() {
+    const existingMessage = document.querySelector('.message');
 
-if (window.innerWidth >= 768) { // Проверяем ширину окна
-    document.body.innerHTML = `<div class="message">Сайт доступен только на мобильных устройствах.</div>`;
+    if (window.innerWidth >= 950) {
+        // Очищаем всё содержимое body, кроме сообщения
+        if (!existingMessage) {
+            document.body.innerHTML = ''; // Удаляем все элементы
+            const message = document.createElement('div');
+            message.className = 'message';
+            message.innerText = 'Сайт доступен только на мобильных устройствах.';
+            document.body.appendChild(message);
+        }
+    } else {
+        // Удаляем сообщение и восстанавливаем весь контент сайта
+        if (existingMessage) {
+            existingMessage.remove(); // Удаляем сообщение из DOM
+        }
+        // Здесь можно добавить логику для восстановления контента, если это необходимо
+    }
 }
+
+// Проверяем размер окна при загрузке страницы
+checkWindowSize();
+
+// Проверяем размер окна при изменении размера
+window.addEventListener('resize', checkWindowSize);
