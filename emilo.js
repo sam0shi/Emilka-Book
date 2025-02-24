@@ -1,99 +1,150 @@
-let dino = document.getElementById('dino');
-let obstacle = document.getElementById('obstacle');
+let player = document.getElementById('player');
 let scoreDisplay = document.getElementById('score');
+let startButton = document.getElementById('startButton');
+let restartButton = document.getElementById('restartButton');
+let mainMenuButton = document.getElementById('mainMenuButton');
+let finalScoreDisplay = document.getElementById('finalScore');
+let welcomeScreen = document.getElementById('welcomeScreen');
+let gameContainer = document.getElementById('gameContainer');
+let gameOverScreen = document.getElementById('gameOverScreen');
+
 let score = 0;
-let isJumping = false;
-let speed = 6; // Скорость движущегося препятствия
+let playerPosition = 50; // Позиция игрока (в процентах от ширины контейнера)
+let gameActive = false;
+let enemyInterval; // Переменная для хранения интервала генерации врагов
 
-const obstacleModels = [
-    'big-penis.png',
-    'tiny-penis.png',
-    'big-triple-penis.png'
-];
+// Установка начальной позиции игрока
+player.style.left = playerPosition + 'vw';
 
-const JUMP_HEIGHT = 80; // Максимальная высота прыжка
+// Обработка нажатий кнопок
+document.getElementById('leftButton').addEventListener('click', moveLeft);
+document.getElementById('rightButton').addEventListener('click', moveRight);
+startButton.addEventListener('click', startGame);
+restartButton.addEventListener('click', restartGame);
+mainMenuButton.addEventListener('click', goToMainMenu);
+
+function moveLeft() {
+    if (playerPosition > 5) { // Лимит слева
+        playerPosition -= 5;
+        player.style.left = playerPosition + 'vw';
+    }
+}
+
+function moveRight() {
+    if (playerPosition < 95) { // Лимит справа
+        playerPosition += 5;
+        player.style.left = playerPosition + 'vw';
+    }
+}
 
 function startGame() {
-    document.getElementById('welcomeScreen').style.display = 'none'; // Скрываем экран приветствия
-    document.getElementById('gameContainer').style.display = 'block'; // Показываем игровое поле
-    generateObstacle(); // Запускаем генерацию препятствий
-}
+    resetGame(); // Сбросить состояние игры
+    gameActive = true;
+    welcomeScreen.style.display = 'none';
+    gameContainer.style.display = 'block';
+    gameOverScreen.style.display = 'none';
 
-// Функция для прыжка
-function jump() {
-    if (isJumping) return;
-    isJumping = true;
-    let jumpHeight = 0;
-
-    let upInterval = setInterval(() => {
-        if (jumpHeight >= JUMP_HEIGHT) {
-            clearInterval(upInterval);
-
-            let downInterval = setInterval(() => {
-                if (jumpHeight <= 0) {
-                    clearInterval(downInterval);
-                    isJumping = false;
-                }
-                jumpHeight -= 5;
-                dino.style.bottom = jumpHeight + 'px';
-            }, 20);
+    enemyInterval = setInterval(() => {
+        if (gameActive) {
+            generateEnemy();
         }
-        jumpHeight += 5;
-        dino.style.bottom = jumpHeight + 'px';
-    }, 20);
-}
-
-// Генерация препятствий
-function generateObstacle() {
-    let randomTime = Math.random() * 2000 + 1000; // В случайном диапазоне времени
-    obstacle.style.left = '100%'; // Начальное положение справа
-    obstacle.style.display = 'block';
-    
-    // Случайный выбор модели препятствия
-    let randomObstacle = obstacleModels[Math.floor(Math.random() * obstacleModels.length)];
-    obstacle.style.backgroundImage = `url(${randomObstacle})`;
-
-    const moveObstacle = setInterval(() => {
-        let obstaclePosition = parseInt(obstacle.style.left);
-        let dinoBottomPosition = parseInt(window.getComputedStyle(dino).bottom);
-
-        // Проверка на столкновение
-        if (obstaclePosition <= 60 && obstaclePosition > 20) {
-            // Проверка на то, что динозавр на земле (не прыгает) или ниже определенной высоты
-            if (!isJumping && dinoBottomPosition <= JUMP_HEIGHT) {
-                clearInterval(moveObstacle);
-                alert('Игра окончена! Ваш счет: ' + score);
-                resetGame();
-            }
-        }
-
-        if (obstaclePosition <= -30) { // Учитываем размер препятствия
-            clearInterval(moveObstacle);
-            obstacle.style.display = 'none';
-            score++;
-            scoreDisplay.innerText = score;
-        }
-
-        obstacle.style.left = obstaclePosition - speed + 'px';
-    }, 20);
-
-    setTimeout(generateObstacle, randomTime); // Рекурсивный вызов для генерации следующего препятствия
+    }, 1500);
 }
 
 function resetGame() {
     score = 0;
-    scoreDisplay.innerText = score;
-    obstacle.style.display = 'none';
+    scoreDisplay.textContent = 'Очки: ' + score;
+
+    // Очистить игровое поле от предыдущих врагов и пуль
+    let enemies = document.querySelectorAll('.enemy');
+    let bullets = document.querySelectorAll('.bullet');
+    
+    enemies.forEach(enemy => enemy.remove());
+    bullets.forEach(bullet => bullet.remove());
 }
 
-// Обработчик события для начала игры
-document.getElementById('startButton').onclick = startGame;
+function generateEnemy() {
+    let enemy = document.createElement('div');
+    enemy.classList.add('enemy');
+    enemy.style.position = 'absolute';
+    enemy.style.left = Math.random() * 100 + 'vw'; // Случайная позиция по горизонтали
+    document.getElementById('gameContainer').appendChild(enemy);
 
-// Управление
-document.addEventListener('keydown', jump);
-document.addEventListener('touchstart', jump);
+    let fallInterval = setInterval(() => {
+        let enemyBottom = parseFloat(getComputedStyle(enemy).getPropertyValue('top'));
+        
+        if (enemyBottom > window.innerHeight) {
+            clearInterval(fallInterval);
+            enemy.remove();
+            score++; // При уклонении от врага
+            scoreDisplay.textContent = 'Очки: ' + score;
+        } else {
+            enemy.style.top = (enemyBottom + 2) + 'px'; // Скорость падения
+        }
 
+        // Вызов функции стрельбы
+        if (gameActive && Math.random() < 0.02) { // Вероятность стрельбы
+            shoot(enemy);
+        }
+    }, 100);
+}
 
-document.getElementById('back').onclick = function() {
-    window.location.href = 'index.html'; // Укажите здесь путь к вашей странице
-};
+function shoot(enemy) {
+    let bullet = document.createElement('div');
+    bullet.classList.add('bullet');
+    bullet.style.position = 'absolute';
+
+    // Центрирование пули относительно врага
+    bullet.style.left = enemy.offsetLeft + (enemy.offsetWidth / 2) - 5 + 'px'; 
+    bullet.style.top = enemy.offsetTop + enemy.offsetHeight + 'px'; // Пуля создается чуть ниже врага
+    document.getElementById('gameContainer').appendChild(bullet);
+
+    let bulletInterval = setInterval(() => {
+        let bulletTop = parseFloat(getComputedStyle(bullet).getPropertyValue('top'));
+        
+        if (bulletTop > window.innerHeight) {
+            clearInterval(bulletInterval);
+            bullet.remove(); // Удаляем пулю, если она ушла за пределы окна
+        } else {
+            bullet.style.top = (bulletTop + 5) + 'px'; // Скорость пули
+        }
+
+        // Проверка на столкновение с игроком
+        checkCollision(player, bullet, bulletInterval);
+    }, 20);
+}
+
+function checkCollision(player, bullet, interval) {
+    let playerBounding = player.getBoundingClientRect();
+    let bulletBounding = bullet.getBoundingClientRect();
+
+    // Проверяем пересечение границ пули и игрока
+    if (
+        playerBounding.left < bulletBounding.right &&
+        playerBounding.right > bulletBounding.left &&
+        playerBounding.bottom > bulletBounding.top &&
+        playerBounding.top < bulletBounding.bottom // Проверка для верхней границы
+    ) {
+        gameOver();
+        clearInterval(interval);
+    }
+}
+
+function gameOver() {
+    gameActive = false;
+    clearInterval(enemyInterval); // Остановить генерацию врагов
+    gameContainer.style.display = 'none';
+    gameOverScreen.style.display = 'block';
+    finalScoreDisplay.textContent = 'Ваши очки: ' + score;
+}
+
+// Перезапуск игры
+function restartGame() {
+    resetGame();
+    startGame();
+}
+
+// Переход на главную страницу
+function goToMainMenu() {
+    window.location.href = 'index.html'; // Переход на index.html
+}
