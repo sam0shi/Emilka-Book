@@ -102,3 +102,9 @@ checkWindowSize();
 
 // Проверяем размер окна при изменении размера
 window.addEventListener('resize', checkWindowSize);
+
+
+ // Функция, которая будет выполняться при нажатии кнопки
+ document.getElementById('minigame').onclick = function() {
+    window.location.href = 'indexemilo.html'; // Укажите здесь путь к вашей странице
+};
