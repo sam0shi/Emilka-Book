@@ -68,6 +68,7 @@ function generateEnemy() {
     enemy.classList.add('enemy');
     enemy.style.position = 'absolute';
     enemy.style.left = Math.random() * 100 + 'vw'; // Случайная позиция по горизонтали
+    enemy.style.top = '0px'; // Начальная позиция врага
     document.getElementById('gameContainer').appendChild(enemy);
 
     let fallInterval = setInterval(() => {
@@ -82,8 +83,11 @@ function generateEnemy() {
             enemy.style.top = (enemyBottom + 7) + 'px'; // Скорость падения
         }
 
+        // Проверка на столкновение с игроком
+        checkCollisionWithEnemy(player, enemy);
+
         // Вызов функции стрельбы
-        if (gameActive && Math.random() < 0.02) { // Вероятность стрельбы
+        if (gameActive && Math.random() < 0.1) { // Вероятность стрельбы
             shoot(enemy);
         }
     }, 100);
@@ -130,6 +134,22 @@ function checkCollision(player, bullet, interval) {
     }
 }
 
+function checkCollisionWithEnemy(player, enemy) {
+    let playerBounding = player.getBoundingClientRect();
+    let enemyBounding = enemy.getBoundingClientRect();
+
+    // Проверяем пересечение границ врага и игрока
+    if (
+        playerBounding.left < enemyBounding.right &&
+        playerBounding.right > enemyBounding.left &&
+        playerBounding.bottom > enemyBounding.top &&
+        playerBounding.top < enemyBounding.bottom // Проверка для верхней границы
+    ) {
+        gameOver(); // Игрок умирает при столкновении с врагом
+        enemy.remove(); // Удаляем врага, если произошло столкновение
+    }
+}
+
 function gameOver() {
     gameActive = false;
     clearInterval(enemyInterval); // Остановить генерацию врагов
@@ -148,4 +168,5 @@ function restartGame() {
 function goToMainMenu() {
     window.location.href = 'index.html'; // Переход на index.html
 }
+
 
