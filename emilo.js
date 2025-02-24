@@ -48,7 +48,7 @@ function startGame() {
         if (gameActive) {
             generateEnemy();
         }
-    }, 1500);
+    }, 1300);
 }
 
 function resetGame() {
@@ -79,7 +79,7 @@ function generateEnemy() {
             score++; // При уклонении от врага
             scoreDisplay.textContent = 'Очки: ' + score;
         } else {
-            enemy.style.top = (enemyBottom + 2) + 'px'; // Скорость падения
+            enemy.style.top = (enemyBottom + 7) + 'px'; // Скорость падения
         }
 
         // Вызов функции стрельбы
@@ -148,3 +148,4 @@ function restartGame() {
 function goToMainMenu() {
     window.location.href = 'index.html'; // Переход на index.html
 }
+
