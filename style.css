@@ -301,6 +301,19 @@ body{
       transition: background-color 0.3s; /* Плавный переход для фона при наведении */
   }
   
+  #minigame {
+   background-color: black; /* Цвет фона кнопки */
+   color: white; /* Цвет текста */
+   font-size: 20px; /* Размер шрифта */
+   padding: 10px 10px; /* Поля (отступы) внутри кнопки */
+   margin-left: 110px;
+   margin-top: 40px;
+   font-family: 'Georgia', serif;
+   border: none; /* Убираем рамку */
+   border-radius: 5px; /* Закругление углов кнопки */
+   cursor: pointer; /* Указываем, что кнопка кликабельна */
+   transition: background-color 0.3s; /* Плавный переход для фона при наведении */
+}
   #result {
    font-family: 'Georgia', serif; /* Применяем красивый шрифт */
    font-size: 28px; /* Увеличиваем размер текста */
@@ -510,9 +523,9 @@ font-family: 'Georgia', serif;
    position: absolute;
    font-family: 'Georgia', serif;
    font-size: 20px;
-   margin-top: 270px;
+   margin-top: 320px;
    margin-left: 10px;
-   color: rgb(113, 113, 113);
+   color: rgb(0, 0, 0);
 }
 
 .details{
@@ -617,4 +630,5 @@ font-family: 'Georgia', serif;
     color: black;
 
 }
+
 
