@@ -3,20 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Игра</title>
+    <title>MiniGame</title>
     <link rel="stylesheet" href="styleemilo.css">
 </head>
 <body>
-    <div id="welcomeScreen" style="text-align: center; margin-top: 200px;">
-        <h1>Добро пожаловать в игру!</h1>
+    <div id="welcomeScreen">
+        <h1>Добро пожаловать в игру! Ваша задача это уворачиваться от летящих на вас врагов, которые стреляют в вас. </h1>
         <button id="startButton">Начать игру</button>
     </div>
     
     <div id="gameContainer" style="display: none;">
-        <button id="back">Назад</button>
-        <div id="dino"></div>
-        <div id="obstacle"></div>
-        <div id="score">0</div>
+        <div id="player"></div>
+        <div id="score">Очки: 0</div>
+    </div>
+
+    <div id="gameOverScreen" style="display: none;">
+        <h2>Игра окончена!</h2>
+        <p id="finalScore">Ваши очки: 0</p>
+        <button id="restartButton">Перезапустить</button>
+        <button id="mainMenuButton">На главную</button>
+    </div>
+
+    <div class="controls">
+        <button id="leftButton">←</button>
+        <button id="rightButton">→</button>
     </div>
 
     <script src="emilo.js"></script>
