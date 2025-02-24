@@ -1,30 +1,74 @@
 body {
     margin: 0;
-    overflow: hidden;
-    background: #f7f7f7;
+    font-family: Arial, sans-serif;
+    background-color: #87CEEB; /* Цвет неба */
 }
 
-#game {
+#gameContainer {
     position: relative;
-    width: 100%;
-    height: 150px;
-    border: 2px solid #333;
+    width: 100vw;
+    height: 80vh;
     overflow: hidden;
+    background-color: #008000; /* Цвет травы */
 }
 
-#dino {
+#player {
     position: absolute;
-    bottom: 0;
-    width: 40px; /* Задайте размер вашего динозаврика */
+    bottom: 20px;
+    left: 50%;
+    width: 40px;
     height: 40px;
-    background-image: url('roaming1fr.png'); /* Замените на ваш спрайт */
-    background-size: cover;
+    background-color: #FFD700; /* Цвет персонажа */
+    transform: translateX(-50%);
 }
 
-#obstacle {
+#score {
     position: absolute;
-    bottom: 0;
-    width: 70px; /* Увеличиваем размер препятствий */
-    height: 70px; /* Увеличиваем размер препятствий */
-    background-size: cover;
+    top: 10px;
+    left: 10px;
+    font-size: 20px;
+    color: #FFFFFF; /* Цвет текста */
+}
+
+#welcomeScreen, #gameOverScreen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+button {
+    background-color: #FF4500; /* Цвет кнопок */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+button:active {
+    background-color: #FF6347; /* Цвет при нажатии */
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.enemy {
+    position: absolute;
+    top: 0px; /* Начальная позиция */
+    width: 40px;
+    height: 40px;
+    background-color: #FF0000; /* Цвет врага */
+}
+
+.bullet {
+    position: absolute;
+    width: 10px;
+    height: 5px;
+    background-color: #000000; /* Цвет пули */
 }
